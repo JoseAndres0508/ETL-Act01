@@ -1,0 +1,5 @@
+Coloque aqui los dos archivos de entrada (los genera la Persona 2):
+  - PADRON_COMPLETO.txt
+  - distelec.txt
+
+Usar solo datos sinteticos o anonimizados. Guardarlos en ANSI Windows-1252.

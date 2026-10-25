@@ -1,0 +1,2 @@
+Aqui va la solucion de Visual Studio / SSIS (Carga_Padron.dtsx y sus conexiones).
+Las rutas se configuran con los parametros de proyecto descritos en ../LEEME.md

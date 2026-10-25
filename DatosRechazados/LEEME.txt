@@ -1,0 +1,2 @@
+El paquete SSIS escribe aqui los registros rechazados (PadronRechazado.txt).
+Esta carpeta debe existir antes de ejecutar el paquete.
