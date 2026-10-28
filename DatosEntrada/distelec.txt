@@ -2177,4 +2177,7 @@
 845001,CONSULADO,EMIRATOS ARABES UNIDOS,ABU DHABI                               
 846001,CONSULADO,INDONESIA,YAKARTA                                              
 848001,CONSULADO,KENIA,NAIROBI                                                  
-
+10100,SAN JOSE,CENTRAL,PRUEBA CODIGO CORTO                                      
+901001,,CENTRAL,PRUEBA SIN PROVINCIA                                            
+90A001,SAN JOSE,CENTRAL,PRUEBA CODIGO LETRA                                     
+101001,SAN JOSE,CENTRAL,HOSPITAL DUPLICADO                                      

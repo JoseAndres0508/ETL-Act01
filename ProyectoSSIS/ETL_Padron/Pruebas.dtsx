@@ -1,0 +1,1191 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/27/2026 2:23:06 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PC_SEBASR"
+  DTS:CreatorName="PC_SEBASR\sebas"
+  DTS:DTSID="{6F994078-1BDD-4BB3-AE9D-8DA86B9018ED}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="5130"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{DFBF3B29-D458-48DC-A333-5F7235871EC6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FF_Distelec]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{6B1D160E-0E6A-4685-8888-27E4D707DEDA}"
+      DTS:ObjectName="FF_Distelec">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::RutaBase] + "\\DatosEntrada\\distelec.txt"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\sebas\OneDrive\Desktop\ETL-Act01\DatosEntrada\distelec.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CODELEC"
+              DTS:DTSID="{11486263-D2AD-4C26-BA85-9410C75EDF14}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PROVINCIA"
+              DTS:DTSID="{5B499F6C-9018-4A9A-B08E-89FD25D488AB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CANTON"
+              DTS:DTSID="{6EFBF43B-6525-4318-9CC9-EFC09F5DC911}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DISTRITO"
+              DTS:DTSID="{54351F2F-BCEF-4CE2-AB3E-F61D5A6D6534}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FF_Padron]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{F8CE31BC-5F93-4B8E-B888-7260FBDB7707}"
+      DTS:ObjectName="FF_Padron">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::RutaBase] + "\\DatosEntrada\\PADRON_COMPLETO.txt"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\sebas\OneDrive\Desktop\ETL-Act01\DatosEntrada\PADRON_COMPLETO.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CEDULA"
+              DTS:DTSID="{52E6C407-0792-484C-912C-F3AD4070EE25}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CODELEC"
+              DTS:DTSID="{0DBDB64C-17D2-4988-AF3E-BF682A70E897}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RELLENO"
+              DTS:DTSID="{2AE9DF00-709E-4E91-92A2-07B68EE31166}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FECHACADUC"
+              DTS:DTSID="{A039FF09-05B3-433C-A389-ED14A0B2436D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="JUNTA"
+              DTS:DTSID="{29576D0E-886C-41D1-A0CA-14360162C1ED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NOMBRE"
+              DTS:DTSID="{8394630D-B28C-49AF-9E38-166007A06A25}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="APELLIDO1"
+              DTS:DTSID="{427AAF4C-AA8A-4154-9768-CD8563AD865C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="APELLIDO2"
+              DTS:DTSID="{697D8A7D-EB1A-4292-A6DF-CDEE35F47D23}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Catalogo"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{9DBE0CDE-11E0-4DEB-BCC8-13F73302BFB7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Catalogo"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Catalogo\FIN_Catalogo_Temporal"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="FIN_Catalogo_Temporal"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DFT_Catalogo\FIN_Catalogo_Temporal.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Catalogo\FIN_Catalogo_Temporal.Inputs[Union All Input 1].Columns[CODELEC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CODELEC"
+                      lineageId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output].Columns[CODELEC]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Catalogo\FIN_Catalogo_Temporal.Outputs[Union All Output 1].Columns[CODELEC]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Catalogo\FIN_Catalogo_Temporal.Inputs[Union All Input 1].Columns[PROVINCIA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PROVINCIA"
+                      lineageId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output].Columns[PROVINCIA]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Catalogo\FIN_Catalogo_Temporal.Outputs[Union All Output 1].Columns[PROVINCIA]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Catalogo\FIN_Catalogo_Temporal.Inputs[Union All Input 1].Columns[CANTON]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CANTON"
+                      lineageId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output].Columns[CANTON]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Catalogo\FIN_Catalogo_Temporal.Outputs[Union All Output 1].Columns[CANTON]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Catalogo\FIN_Catalogo_Temporal.Inputs[Union All Input 1].Columns[DISTRITO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="DISTRITO"
+                      lineageId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output].Columns[DISTRITO]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Catalogo\FIN_Catalogo_Temporal.Outputs[Union All Output 1].Columns[DISTRITO]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT_Catalogo\FIN_Catalogo_Temporal.Inputs[Union All Input 2]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Catalogo\FIN_Catalogo_Temporal.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Catalogo\FIN_Catalogo_Temporal.Outputs[Union All Output 1].Columns[CODELEC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_Catalogo\FIN_Catalogo_Temporal.Outputs[Union All Output 1].Columns[CODELEC]"
+                      name="CODELEC" />
+                    <outputColumn
+                      refId="Package\DFT_Catalogo\FIN_Catalogo_Temporal.Outputs[Union All Output 1].Columns[PROVINCIA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_Catalogo\FIN_Catalogo_Temporal.Outputs[Union All Output 1].Columns[PROVINCIA]"
+                      name="PROVINCIA" />
+                    <outputColumn
+                      refId="Package\DFT_Catalogo\FIN_Catalogo_Temporal.Outputs[Union All Output 1].Columns[CANTON]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_Catalogo\FIN_Catalogo_Temporal.Outputs[Union All Output 1].Columns[CANTON]"
+                      name="CANTON" />
+                    <outputColumn
+                      refId="Package\DFT_Catalogo\FIN_Catalogo_Temporal.Outputs[Union All Output 1].Columns[DISTRITO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Catalogo\FIN_Catalogo_Temporal.Outputs[Union All Output 1].Columns[DISTRITO]"
+                      name="DISTRITO" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Catalogo\SRC_Distelec"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="SRC_Distelec"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Catalogo\SRC_Distelec.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FF_Distelec]"
+                  connectionManagerRefId="Package.ConnectionManagers[FF_Distelec]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output].Columns[CODELEC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output].ExternalColumns[CODELEC]"
+                      length="50"
+                      lineageId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output].Columns[CODELEC]"
+                      name="CODELEC"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output].Columns[PROVINCIA]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output].ExternalColumns[PROVINCIA]"
+                      length="50"
+                      lineageId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output].Columns[PROVINCIA]"
+                      name="PROVINCIA"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output].Columns[CANTON]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output].ExternalColumns[CANTON]"
+                      length="50"
+                      lineageId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output].Columns[CANTON]"
+                      name="CANTON"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output].Columns[DISTRITO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output].ExternalColumns[DISTRITO]"
+                      length="100"
+                      lineageId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output].Columns[DISTRITO]"
+                      name="DISTRITO"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output].ExternalColumns[CODELEC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CODELEC" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output].ExternalColumns[PROVINCIA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PROVINCIA" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output].ExternalColumns[CANTON]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CANTON" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output].ExternalColumns[DISTRITO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="DISTRITO" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Catalogo.Paths[Flat File Source Output]"
+              endId="Package\DFT_Catalogo\FIN_Catalogo_Temporal.Inputs[Union All Input 1]"
+              name="Flat File Source Output"
+              startId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Padron"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{98F444A8-A4DD-4F09-B9C7-F67B23A82774}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Padron"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Padron\SRC_Padron"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="SRC_Padron"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Padron\SRC_Padron.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FF_Padron]"
+                  connectionManagerRefId="Package.ConnectionManagers[FF_Padron]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[CEDULA]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].ExternalColumns[CEDULA]"
+                      length="50"
+                      lineageId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[CEDULA]"
+                      name="CEDULA"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[CODELEC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].ExternalColumns[CODELEC]"
+                      length="50"
+                      lineageId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[CODELEC]"
+                      name="CODELEC"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[RELLENO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].ExternalColumns[RELLENO]"
+                      length="50"
+                      lineageId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[RELLENO]"
+                      name="RELLENO"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[FECHACADUC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].ExternalColumns[FECHACADUC]"
+                      length="50"
+                      lineageId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[FECHACADUC]"
+                      name="FECHACADUC"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[JUNTA]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].ExternalColumns[JUNTA]"
+                      length="50"
+                      lineageId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[JUNTA]"
+                      name="JUNTA"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[NOMBRE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].ExternalColumns[NOMBRE]"
+                      length="100"
+                      lineageId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[NOMBRE]"
+                      name="NOMBRE"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[APELLIDO1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].ExternalColumns[APELLIDO1]"
+                      length="100"
+                      lineageId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[APELLIDO1]"
+                      name="APELLIDO1"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[APELLIDO2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].ExternalColumns[APELLIDO2]"
+                      length="100"
+                      lineageId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[APELLIDO2]"
+                      name="APELLIDO2"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].ExternalColumns[CEDULA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CEDULA" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].ExternalColumns[CODELEC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CODELEC" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].ExternalColumns[RELLENO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="RELLENO" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].ExternalColumns[FECHACADUC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FECHACADUC" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].ExternalColumns[JUNTA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="JUNTA" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].ExternalColumns[NOMBRE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="NOMBRE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].ExternalColumns[APELLIDO1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="APELLIDO1" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].ExternalColumns[APELLIDO2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="APELLIDO2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Padron\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DFT_Padron\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Padron\Union All.Inputs[Union All Input 1].Columns[CEDULA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CEDULA"
+                      lineageId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[CEDULA]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[CEDULA]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Padron\Union All.Inputs[Union All Input 1].Columns[CODELEC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CODELEC"
+                      lineageId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[CODELEC]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[CODELEC]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Padron\Union All.Inputs[Union All Input 1].Columns[RELLENO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RELLENO"
+                      lineageId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[RELLENO]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[RELLENO]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Padron\Union All.Inputs[Union All Input 1].Columns[FECHACADUC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FECHACADUC"
+                      lineageId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[FECHACADUC]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[FECHACADUC]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Padron\Union All.Inputs[Union All Input 1].Columns[JUNTA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="JUNTA"
+                      lineageId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[JUNTA]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[JUNTA]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Padron\Union All.Inputs[Union All Input 1].Columns[NOMBRE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="NOMBRE"
+                      lineageId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[NOMBRE]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[NOMBRE]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Padron\Union All.Inputs[Union All Input 1].Columns[APELLIDO1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="APELLIDO1"
+                      lineageId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[APELLIDO1]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[APELLIDO1]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Padron\Union All.Inputs[Union All Input 1].Columns[APELLIDO2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="APELLIDO2"
+                      lineageId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output].Columns[APELLIDO2]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[APELLIDO2]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT_Padron\Union All.Inputs[Union All Input 2]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Padron\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[CEDULA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[CEDULA]"
+                      name="CEDULA" />
+                    <outputColumn
+                      refId="Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[CODELEC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[CODELEC]"
+                      name="CODELEC" />
+                    <outputColumn
+                      refId="Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[RELLENO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[RELLENO]"
+                      name="RELLENO" />
+                    <outputColumn
+                      refId="Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[FECHACADUC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[FECHACADUC]"
+                      name="FECHACADUC" />
+                    <outputColumn
+                      refId="Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[JUNTA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[JUNTA]"
+                      name="JUNTA" />
+                    <outputColumn
+                      refId="Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[NOMBRE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[NOMBRE]"
+                      name="NOMBRE" />
+                    <outputColumn
+                      refId="Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[APELLIDO1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[APELLIDO1]"
+                      name="APELLIDO1" />
+                    <outputColumn
+                      refId="Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[APELLIDO2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Padron\Union All.Outputs[Union All Output 1].Columns[APELLIDO2]"
+                      name="APELLIDO2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Padron.Paths[Flat File Source Output]"
+              endId="Package\DFT_Padron\Union All.Inputs[Union All Input 1]"
+              name="Flat File Source Output"
+              startId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{6CD70268-BAB2-41D9-9417-3A608D2BA82E}"
+      DTS:From="Package\DFT_Catalogo"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\DFT_Padron" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="147.5,42"
+          Id="Package\DFT_Catalogo"
+          TopLeft="231,118.624999410783" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\DFT_Padron"
+          TopLeft="308.5,278.958331947732" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="304.75,160.624999410783">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73.25,118.333332536949"
+              Start="0,0"
+              End="73.25,110.833332536949">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.1666662684745" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,55.1666662684745"
+                    Point2="0,59.1666662684745"
+                    Point3="4,59.1666662684745" />
+                  <mssgle:LineSegment
+                    End="69.25,59.1666662684745" />
+                  <mssgle:CubicBezierSegment
+                    Point1="69.25,59.1666662684745"
+                    Point2="73.25,59.1666662684745"
+                    Point3="73.25,63.1666662684745" />
+                  <mssgle:LineSegment
+                    End="73.25,110.833332536949" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_Catalogo">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="144.5,42"
+          Id="Package\DFT_Catalogo\SRC_Distelec"
+          TopLeft="262,166.291665840687" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\DFT_Catalogo\FIN_Catalogo_Temporal"
+          TopLeft="363,256.208332060733" />
+        <EdgeLayout
+          Id="Package\DFT_Catalogo.Paths[Flat File Source Output]"
+          TopLeft="334.25,208.291665840687">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="125.75,47.9166662200458"
+              Start="0,0"
+              End="125.75,40.4166662200458">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.9583331100229" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.9583331100229"
+                    Point2="0,23.9583331100229"
+                    Point3="4,23.9583331100229" />
+                  <mssgle:LineSegment
+                    End="121.75,23.9583331100229" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.75,23.9583331100229"
+                    Point2="125.75,23.9583331100229"
+                    Point3="125.75,27.9583331100229" />
+                  <mssgle:LineSegment
+                    End="125.75,40.4166662200458" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="54.875,28.9583331100229,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\DFT_Padron">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="141,42"
+          Id="Package\DFT_Padron\SRC_Padron"
+          TopLeft="260.285714285714,104.714285714286" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\DFT_Padron\Union All"
+          TopLeft="400.666666666667,202" />
+        <EdgeLayout
+          Id="Package\DFT_Padron.Paths[Flat File Source Output]"
+          TopLeft="330.785714285714,146.714285714286">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="130.380952380952,55.2857142857143"
+              Start="0,0"
+              End="130.380952380952,47.7857142857143">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.6428571428571" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.6428571428571"
+                    Point2="0,27.6428571428571"
+                    Point3="4,27.6428571428571" />
+                  <mssgle:LineSegment
+                    End="126.380952380952,27.6428571428571" />
+                  <mssgle:CubicBezierSegment
+                    Point1="126.380952380952,27.6428571428571"
+                    Point2="130.380952380952,27.6428571428571"
+                    Point3="130.380952380952,31.6428571428571" />
+                  <mssgle:LineSegment
+                    End="130.380952380952,47.7857142857143" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="57.1904761904762,32.6428571428571,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

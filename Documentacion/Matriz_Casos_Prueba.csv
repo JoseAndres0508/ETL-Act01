@@ -1,0 +1,37 @@
+﻿Id;Archivo;Linea;Caso;RF;Registro;Resultado esperado;Motivo esperado
+P01;PADRON_COMPLETO.txt;107;Cédula con cero inicial (debe conservarse como texto);RF-01, RF-04;012345678,101001, ,20300115,00001,ANA                           ,SOLANO                    ,MORA;Cargado;
+P02;PADRON_COMPLETO.txt;128;Espacios sobrantes en cédula, nombre y apellidos;RF-03;  203456781 ,201001, ,20310520,00002,   LUIS                       ,  ARAYA                   , CASTRO;Cargado;
+P03;PADRON_COMPLETO.txt;142;Código electoral con espacios alrededor;RF-03, RF-06;304567892, 301001 , ,20290310,00003,LAURA                         ,QUESADA                   ,ROJAS;Cargado;
+P04;PADRON_COMPLETO.txt;183;Sin segundo apellido (Apellido2 vacío -> NULL);RF-03;405678913,401001, ,20320801,00004,JOHN                          ,SMITH                     ,;Cargado;
+P05;PADRON_COMPLETO.txt;231;Ñ en apellidos (página de códigos 1252);RF-01;506789124,501001, ,20330228,00005,PEÑA                          ,MUÑOZ                     ,NUÑEZ;Cargado;
+P06;PADRON_COMPLETO.txt;237;Fecha 29 de febrero en año bisiesto (2028);RF-05;607891235,601001, ,20280229,00006,SOFIA                         ,ARIAS                     ,BRENES;Cargado;
+P07;PADRON_COMPLETO.txt;257;RELLENO con un valor distinto de espacio (se conserva tal cual);RF-01;708912346,701001,X,20341111,00007,PABLO                         ,SOTO                      ,CAMPOS;Cargado;
+P08;PADRON_COMPLETO.txt;277;Distrito de consulado (código 8xxxxx existe en el catálogo);RF-06, RF-07;109123457,848001, ,20300909,09999,DIEGO                         ,SEGURA                    ,MORA;Cargado;
+P09;PADRON_COMPLETO.txt;354;Cédula vacía (9 espacios);RF-04;         ,101001, ,20300101,00010,MARTA                         ,VARGAS                    ,MORA;Rechazado;CEDULA_VACIA
+P10;PADRON_COMPLETO.txt;362;Cédula vacía (campo sin caracteres);RF-04;,101001, ,20300101,00011,ROSA                          ,VARGAS                    ,MORA;Rechazado;CEDULA_VACIA
+P11;PADRON_COMPLETO.txt;411;Cédula de 8 dígitos;RF-04;12345678,101001, ,20300101,00012,PEDRO                         ,MORA                      ,SOTO;Rechazado;CEDULA_LONGITUD
+P12;PADRON_COMPLETO.txt;436;Cédula de 10 dígitos;RF-04;1234567890,101001, ,20300101,00013,PEDRO                         ,MORA                      ,ARIAS;Rechazado;CEDULA_LONGITUD
+P13;PADRON_COMPLETO.txt;452;Cédula con letra;RF-04;1234A6789,101001, ,20300101,00014,ELENA                         ,ROJAS                     ,SOTO;Rechazado;CEDULA_CARACTERES
+P14;PADRON_COMPLETO.txt;498;Cédula con guiones (9 caracteres);RF-04;1-234-567,101001, ,20300101,00015,RAUL                          ,ROJAS                     ,MORA;Rechazado;CEDULA_CARACTERES
+P15;PADRON_COMPLETO.txt;500;Cédula con espacio interno;RF-04;1234 6789,101001, ,20300101,00016,IRENE                         ,CHAVES                    ,MORA;Rechazado;CEDULA_CARACTERES
+P16;PADRON_COMPLETO.txt;551;Fecha 31 de febrero (día inexistente);RF-05;811111111,101001, ,20300231,00020,HUGO                          ,CASTRO                    ,MORA;Rechazado;FECHA_INVALIDA
+P17;PADRON_COMPLETO.txt;616;Fecha con mes 13;RF-05;811111112,101001, ,20301301,00021,OSCAR                         ,CASTRO                    ,SOTO;Rechazado;FECHA_INVALIDA
+P18;PADRON_COMPLETO.txt;631;Fecha con letras;RF-05;811111113,101001, ,2030AB01,00022,IVAN                          ,ARAYA                     ,SOTO;Rechazado;FECHA_INVALIDA
+P19;PADRON_COMPLETO.txt;694;Fecha vacía;RF-05;811111114,101001, ,        ,00023,EDGAR                         ,ARAYA                     ,MORA;Rechazado;FECHA_INVALIDA
+P20;PADRON_COMPLETO.txt;705;Fecha en orden DDMMAAAA (no AAAAMMDD);RF-05;811111115,101001, ,15012030,00024,TERESA                        ,SOLANO                    ,ARIAS;Rechazado;FECHA_INVALIDA
+P21;PADRON_COMPLETO.txt;712;29 de febrero en año no bisiesto (2027);RF-05;811111116,101001, ,20270229,00025,GLORIA                        ,SOLANO                    ,MORA;Rechazado;FECHA_INVALIDA
+P22;PADRON_COMPLETO.txt;752;Fecha de 7 dígitos;RF-05;811111117,101001, ,2030011,00026,MARCO                         ,SOLANO                    ,SOTO;Rechazado;FECHA_INVALIDA
+P23;PADRON_COMPLETO.txt;763;Código electoral que no existe en el catálogo;RF-06;821111111,999999, ,20300101,00030,ALBERTO                       ,MORA                      ,MORA;Rechazado;CODELEC_NO_EXISTE
+P24;PADRON_COMPLETO.txt;848;Código electoral de 5 dígitos;RF-06;821111112,10100, ,20300101,00031,BEATRIZ                       ,MORA                      ,SOTO;Rechazado;CODELEC_NO_EXISTE
+P25;PADRON_COMPLETO.txt;872;Código electoral vacío;RF-06;821111113,      , ,20300101,00032,CLARA                         ,MORA                      ,ARIAS;Rechazado;CODELEC_NO_EXISTE
+P26;PADRON_COMPLETO.txt;933;Código electoral rechazado en el catálogo (901001 sin provincia);RF-06;821111114,901001, ,20300101,00033,DORA                          ,MORA                      ,BRENES;Rechazado;CODELEC_NO_EXISTE
+P27;PADRON_COMPLETO.txt;935;Dos errores: cédula vacía y fecha inválida (gana la cédula);RF-04, RF-05;         ,101001, ,20301301,00040,ERNESTO                       ,SOTO                      ,MORA;Rechazado;CEDULA_VACIA
+P28;PADRON_COMPLETO.txt;956;Dos errores: fecha inválida y código inexistente (gana la fecha);RF-05, RF-06;831111111,999999, ,20300231,00041,FLOR                          ,SOTO                      ,ARIAS;Rechazado;FECHA_INVALIDA
+P29;PADRON_COMPLETO.txt;981;Línea con solo 5 columnas;RF-01;841111111,101001, ,20300101,00050;Rechazado;LINEA_MALFORMADA
+P30;PADRON_COMPLETO.txt;1004;Línea con nombre y primer apellido vacíos;RF-01;841111112,101001, ,20300101,00051,                              ,                          ,;Rechazado;LINEA_MALFORMADA
+P31;PADRON_COMPLETO.txt;1031;Cédula repetida con otros datos (la primera aparición se carga);Regla de duplicados;842162530,102001, ,20350101,00060,OTRO                          ,NOMBRE                    ,DISTINTO;Rechazado;CEDULA_DUPLICADA
+P32;PADRON_COMPLETO.txt;1032;Línea idéntica repetida;Regla de duplicados;439451973,112026, ,20300309,06593,PABLO                         ,ACUÑA                     ,BOLAÑOS;Rechazado;CEDULA_DUPLICADA
+C01;distelec.txt;2180;Código de 5 dígitos;RF-02, RF-03;10100,SAN JOSE,CENTRAL,PRUEBA CODIGO CORTO;Rechazado;CATALOGO_INVALIDO
+C02;distelec.txt;2181;Provincia vacía;RF-02, RF-03;901001,,CENTRAL,PRUEBA SIN PROVINCIA;Rechazado;CATALOGO_INVALIDO
+C03;distelec.txt;2182;Código con letra;RF-02, RF-03;90A001,SAN JOSE,CENTRAL,PRUEBA CODIGO LETRA;Rechazado;CATALOGO_INVALIDO
+C04;distelec.txt;2183;Código repetido (101001 ya existe);RF-02, RF-03;101001,SAN JOSE,CENTRAL,HOSPITAL DUPLICADO;Rechazado;CATALOGO_DUPLICADO
