@@ -240,7 +240,71 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:Variables />
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8D20C833-2FBB-4075-AC22-80FA1B79DD2C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="IdEjecucion">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{064D6439-5CE9-439A-961C-CDE98E7FAA34}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="CatLeidos">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5EC1179A-C4A5-4DD1-8200-291063A6ACF6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="CatCargados">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9499CC5E-D344-4DF9-9CBE-C752550FE7A8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="CatRechazados">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E30242E8-8DDC-430B-8E34-3A1B0C167AD8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="PadLeidos">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4F57349E-47F0-48D6-93AF-9E4D75C71E47}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="PadCargados">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8E2BB2D6-2D86-4FB3-994B-7C8978E8DBD1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="PadRechazados">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\DFT_Catalogo"
@@ -394,6 +458,28 @@
                           name="FriendlyExpression">(DT_STR,100,1252)"distelec.txt"</property>
                       </properties>
                     </outputColumn>
+                  <outputColumn
+      refId="Package\DFT_Catalogo\DC_ArchivoCat.Outputs[Derived Column Output].Columns[IdEjecucion]"
+      dataType="i4"
+      errorOrTruncationOperation="Computation"
+      errorRowDisposition="FailComponent"
+      lineageId="Package\DFT_Catalogo\DC_ArchivoCat.Outputs[Derived Column Output].Columns[IdEjecucion]"
+      name="IdEjecucion"
+      truncationRowDisposition="FailComponent">
+      <properties>
+        <property
+          containsID="true"
+          dataType="System.String"
+          description="Derived Column Expression"
+          name="Expression">@[User::IdEjecucion]</property>
+        <property
+          containsID="true"
+          dataType="System.String"
+          description="Derived Column Friendly Expression"
+          expressionType="Notify"
+          name="FriendlyExpression">@[User::IdEjecucion]</property>
+      </properties>
+    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1395,6 +1481,12 @@
                       cachedName="Archivo"
                       externalMetadataColumnId="Package\DFT_Catalogo\OLE_ErroresCatalogo.Inputs[OLE DB Destination Input].ExternalColumns[Archivo]"
                       lineageId="Package\DFT_Catalogo\DC_ArchivoCat.Outputs[Derived Column Output].Columns[Archivo]" />
+                  <inputColumn
+      refId="Package\DFT_Catalogo\OLE_ErroresCatalogo.Inputs[OLE DB Destination Input].Columns[IdEjecucion]"
+      cachedDataType="i4"
+      cachedName="IdEjecucion"
+      externalMetadataColumnId="Package\DFT_Catalogo\OLE_ErroresCatalogo.Inputs[OLE DB Destination Input].ExternalColumns[IdEjecucion]"
+      lineageId="Package\DFT_Catalogo\DC_ArchivoCat.Outputs[Derived Column Output].Columns[IdEjecucion]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2677,6 +2769,93 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                 </output>
               </outputs>
             </component>
+          <component
+    refId="Package\DFT_Catalogo\RC_CatLeidos"
+    componentClassID="Microsoft.RowCount"
+    contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+    description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+    name="RC_CatLeidos">
+    <properties>
+      <property
+        dataType="System.String"
+        description="Specifies the variable to hold the row count."
+        name="VariableName">User::CatLeidos</property>
+    </properties>
+    <inputs>
+      <input
+        refId="Package\DFT_Catalogo\RC_CatLeidos.Inputs[Row Count Input 1]"
+        hasSideEffects="true"
+        name="Row Count Input 1">
+        <externalMetadataColumns />
+      </input>
+    </inputs>
+    <outputs>
+      <output
+        refId="Package\DFT_Catalogo\RC_CatLeidos.Outputs[Row Count Output 1]"
+        name="Row Count Output 1"
+        synchronousInputId="Package\DFT_Catalogo\RC_CatLeidos.Inputs[Row Count Input 1]">
+        <externalMetadataColumns />
+      </output>
+    </outputs>
+  </component>
+          <component
+    refId="Package\DFT_Catalogo\RC_CatCargados"
+    componentClassID="Microsoft.RowCount"
+    contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+    description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+    name="RC_CatCargados">
+    <properties>
+      <property
+        dataType="System.String"
+        description="Specifies the variable to hold the row count."
+        name="VariableName">User::CatCargados</property>
+    </properties>
+    <inputs>
+      <input
+        refId="Package\DFT_Catalogo\RC_CatCargados.Inputs[Row Count Input 1]"
+        hasSideEffects="true"
+        name="Row Count Input 1">
+        <externalMetadataColumns />
+      </input>
+    </inputs>
+    <outputs>
+      <output
+        refId="Package\DFT_Catalogo\RC_CatCargados.Outputs[Row Count Output 1]"
+        name="Row Count Output 1"
+        synchronousInputId="Package\DFT_Catalogo\RC_CatCargados.Inputs[Row Count Input 1]">
+        <externalMetadataColumns />
+      </output>
+    </outputs>
+  </component>
+          <component
+    refId="Package\DFT_Catalogo\RC_CatRechazados"
+    componentClassID="Microsoft.RowCount"
+    contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+    description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+    name="RC_CatRechazados">
+    <properties>
+      <property
+        dataType="System.String"
+        description="Specifies the variable to hold the row count."
+        name="VariableName">User::CatRechazados</property>
+    </properties>
+    <inputs>
+      <input
+        refId="Package\DFT_Catalogo\RC_CatRechazados.Inputs[Row Count Input 1]"
+        hasSideEffects="true"
+        name="Row Count Input 1">
+        <externalMetadataColumns />
+      </input>
+    </inputs>
+    <outputs>
+      <output
+        refId="Package\DFT_Catalogo\RC_CatRechazados.Outputs[Row Count Output 1]"
+        name="Row Count Output 1"
+        synchronousInputId="Package\DFT_Catalogo\RC_CatRechazados.Inputs[Row Count Input 1]">
+        <externalMetadataColumns />
+      </output>
+    </outputs>
+  </component>
           </components>
           <paths>
             <path
@@ -2701,7 +2880,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               startId="Package\DFT_Catalogo\DC_MotivoDuplicadoCat.Outputs[Derived Column Output]" />
             <path
               refId="Package\DFT_Catalogo.Paths[Derived Column Output4]"
-              endId="Package\DFT_Catalogo\OLE_ErroresCatalogo.Inputs[OLE DB Destination Input]"
+              endId="Package\DFT_Catalogo\RC_CatRechazados.Inputs[Row Count Input 1]"
               name="Derived Column Output"
               startId="Package\DFT_Catalogo\DC_ArchivoCat.Outputs[Derived Column Output]" />
             <path
@@ -2711,7 +2890,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               startId="Package\DFT_Catalogo\SCR_DuplicadosCatalogo.Outputs[Duplicados]" />
             <path
               refId="Package\DFT_Catalogo.Paths[Flat File Source Output]"
-              endId="Package\DFT_Catalogo\DC_LimpiezaCatalogo.Inputs[Derived Column Input]"
+              endId="Package\DFT_Catalogo\RC_CatLeidos.Inputs[Row Count Input 1]"
               name="Flat File Source Output"
               startId="Package\DFT_Catalogo\SRC_Distelec.Outputs[Flat File Source Output]" />
             <path
@@ -2721,7 +2900,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               startId="Package\DFT_Catalogo\CS_ValidarCatalogo.Outputs[Rechazados]" />
             <path
               refId="Package\DFT_Catalogo.Paths[Unicos]"
-              endId="Package\DFT_Catalogo\OLE_UbicacionElectoral.Inputs[OLE DB Destination Input]"
+              endId="Package\DFT_Catalogo\RC_CatCargados.Inputs[Row Count Input 1]"
               name="Unicos"
               startId="Package\DFT_Catalogo\SCR_DuplicadosCatalogo.Outputs[Unicos]" />
             <path
@@ -2734,6 +2913,21 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               endId="Package\DFT_Catalogo\DC_TipoCatalogo.Inputs[Derived Column Input]"
               name="Validos"
               startId="Package\DFT_Catalogo\CS_ValidarCatalogo.Outputs[Validos]" />
+          <path
+    refId="Package\DFT_Catalogo.Paths[RC_CatLeidos]"
+    endId="Package\DFT_Catalogo\DC_LimpiezaCatalogo.Inputs[Derived Column Input]"
+    name="Row Count Output 1"
+    startId="Package\DFT_Catalogo\RC_CatLeidos.Outputs[Row Count Output 1]" />
+          <path
+    refId="Package\DFT_Catalogo.Paths[RC_CatCargados]"
+    endId="Package\DFT_Catalogo\OLE_UbicacionElectoral.Inputs[OLE DB Destination Input]"
+    name="Row Count Output 1"
+    startId="Package\DFT_Catalogo\RC_CatCargados.Outputs[Row Count Output 1]" />
+          <path
+    refId="Package\DFT_Catalogo.Paths[RC_CatRechazados]"
+    endId="Package\DFT_Catalogo\OLE_ErroresCatalogo.Inputs[OLE DB Destination Input]"
+    name="Row Count Output 1"
+    startId="Package\DFT_Catalogo\RC_CatRechazados.Outputs[Row Count Output 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -3190,6 +3384,28 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                           name="FriendlyExpression">(DT_STR,100,1252)"PADRON_COMPLETO.txt"</property>
                       </properties>
                     </outputColumn>
+                  <outputColumn
+      refId="Package\DFT_Padron\DC_Archivo.Outputs[Derived Column Output].Columns[IdEjecucion]"
+      dataType="i4"
+      errorOrTruncationOperation="Computation"
+      errorRowDisposition="FailComponent"
+      lineageId="Package\DFT_Padron\DC_Archivo.Outputs[Derived Column Output].Columns[IdEjecucion]"
+      name="IdEjecucion"
+      truncationRowDisposition="FailComponent">
+      <properties>
+        <property
+          containsID="true"
+          dataType="System.String"
+          description="Derived Column Expression"
+          name="Expression">@[User::IdEjecucion]</property>
+        <property
+          containsID="true"
+          dataType="System.String"
+          description="Derived Column Friendly Expression"
+          expressionType="Notify"
+          name="FriendlyExpression">@[User::IdEjecucion]</property>
+      </properties>
+    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -4481,6 +4697,12 @@ where [refTable].[CodElec] = ?</property>
                       cachedName="Archivo"
                       externalMetadataColumnId="Package\DFT_Padron\OLE_ErroresPadron.Inputs[OLE DB Destination Input].ExternalColumns[Archivo]"
                       lineageId="Package\DFT_Padron\DC_Archivo.Outputs[Derived Column Output].Columns[Archivo]" />
+                  <inputColumn
+      refId="Package\DFT_Padron\OLE_ErroresPadron.Inputs[OLE DB Destination Input].Columns[IdEjecucion]"
+      cachedDataType="i4"
+      cachedName="IdEjecucion"
+      externalMetadataColumnId="Package\DFT_Padron\OLE_ErroresPadron.Inputs[OLE DB Destination Input].ExternalColumns[IdEjecucion]"
+      lineageId="Package\DFT_Padron\DC_Archivo.Outputs[Derived Column Output].Columns[IdEjecucion]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -7192,6 +7414,93 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                 </output>
               </outputs>
             </component>
+          <component
+    refId="Package\DFT_Padron\RC_PadLeidos"
+    componentClassID="Microsoft.RowCount"
+    contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+    description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+    name="RC_PadLeidos">
+    <properties>
+      <property
+        dataType="System.String"
+        description="Specifies the variable to hold the row count."
+        name="VariableName">User::PadLeidos</property>
+    </properties>
+    <inputs>
+      <input
+        refId="Package\DFT_Padron\RC_PadLeidos.Inputs[Row Count Input 1]"
+        hasSideEffects="true"
+        name="Row Count Input 1">
+        <externalMetadataColumns />
+      </input>
+    </inputs>
+    <outputs>
+      <output
+        refId="Package\DFT_Padron\RC_PadLeidos.Outputs[Row Count Output 1]"
+        name="Row Count Output 1"
+        synchronousInputId="Package\DFT_Padron\RC_PadLeidos.Inputs[Row Count Input 1]">
+        <externalMetadataColumns />
+      </output>
+    </outputs>
+  </component>
+          <component
+    refId="Package\DFT_Padron\RC_PadCargados"
+    componentClassID="Microsoft.RowCount"
+    contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+    description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+    name="RC_PadCargados">
+    <properties>
+      <property
+        dataType="System.String"
+        description="Specifies the variable to hold the row count."
+        name="VariableName">User::PadCargados</property>
+    </properties>
+    <inputs>
+      <input
+        refId="Package\DFT_Padron\RC_PadCargados.Inputs[Row Count Input 1]"
+        hasSideEffects="true"
+        name="Row Count Input 1">
+        <externalMetadataColumns />
+      </input>
+    </inputs>
+    <outputs>
+      <output
+        refId="Package\DFT_Padron\RC_PadCargados.Outputs[Row Count Output 1]"
+        name="Row Count Output 1"
+        synchronousInputId="Package\DFT_Padron\RC_PadCargados.Inputs[Row Count Input 1]">
+        <externalMetadataColumns />
+      </output>
+    </outputs>
+  </component>
+          <component
+    refId="Package\DFT_Padron\RC_PadRechazados"
+    componentClassID="Microsoft.RowCount"
+    contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+    description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+    name="RC_PadRechazados">
+    <properties>
+      <property
+        dataType="System.String"
+        description="Specifies the variable to hold the row count."
+        name="VariableName">User::PadRechazados</property>
+    </properties>
+    <inputs>
+      <input
+        refId="Package\DFT_Padron\RC_PadRechazados.Inputs[Row Count Input 1]"
+        hasSideEffects="true"
+        name="Row Count Input 1">
+        <externalMetadataColumns />
+      </input>
+    </inputs>
+    <outputs>
+      <output
+        refId="Package\DFT_Padron\RC_PadRechazados.Outputs[Row Count Output 1]"
+        name="Row Count Output 1"
+        synchronousInputId="Package\DFT_Padron\RC_PadRechazados.Inputs[Row Count Input 1]">
+        <externalMetadataColumns />
+      </output>
+    </outputs>
+  </component>
           </components>
           <paths>
             <path
@@ -7231,7 +7540,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               startId="Package\DFT_Padron\DC_MotivoDuplicada.Outputs[Derived Column Output]" />
             <path
               refId="Package\DFT_Padron.Paths[Derived Column Output6]"
-              endId="Package\DFT_Padron\OLE_ErroresPadron.Inputs[OLE DB Destination Input]"
+              endId="Package\DFT_Padron\RC_PadRechazados.Inputs[Row Count Input 1]"
               name="Derived Column Output"
               startId="Package\DFT_Padron\DC_Archivo.Outputs[Derived Column Output]" />
             <path
@@ -7241,7 +7550,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               startId="Package\DFT_Padron\SCR_DuplicadosPadron.Outputs[Duplicados]" />
             <path
               refId="Package\DFT_Padron.Paths[Flat File Source Output]"
-              endId="Package\DFT_Padron\DC_LimpiezaPadron.Inputs[Derived Column Input]"
+              endId="Package\DFT_Padron\RC_PadLeidos.Inputs[Row Count Input 1]"
               name="Flat File Source Output"
               startId="Package\DFT_Padron\SRC_Padron.Outputs[Flat File Source Output]" />
             <path
@@ -7261,7 +7570,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               startId="Package\DFT_Padron\CS_ValidarPadron.Outputs[Rechazados]" />
             <path
               refId="Package\DFT_Padron.Paths[Unicos]"
-              endId="Package\DFT_Padron\OLE_Padron.Inputs[OLE DB Destination Input]"
+              endId="Package\DFT_Padron\RC_PadCargados.Inputs[Row Count Input 1]"
               name="Unicos"
               startId="Package\DFT_Padron\SCR_DuplicadosPadron.Outputs[Unicos]" />
             <path
@@ -7274,8 +7583,183 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               endId="Package\DFT_Padron\DC_ConvertirFecha.Inputs[Derived Column Input]"
               name="Validos"
               startId="Package\DFT_Padron\CS_ValidarPadron.Outputs[Validos]" />
+          <path
+    refId="Package\DFT_Padron.Paths[RC_PadLeidos]"
+    endId="Package\DFT_Padron\DC_LimpiezaPadron.Inputs[Derived Column Input]"
+    name="Row Count Output 1"
+    startId="Package\DFT_Padron\RC_PadLeidos.Outputs[Row Count Output 1]" />
+          <path
+    refId="Package\DFT_Padron.Paths[RC_PadCargados]"
+    endId="Package\DFT_Padron\OLE_Padron.Inputs[OLE DB Destination Input]"
+    name="Row Count Output 1"
+    startId="Package\DFT_Padron\RC_PadCargados.Outputs[Row Count Output 1]" />
+          <path
+    refId="Package\DFT_Padron.Paths[RC_PadRechazados]"
+    endId="Package\DFT_Padron\OLE_ErroresPadron.Inputs[OLE DB Destination Input]"
+    name="Row Count Output 1"
+    startId="Package\DFT_Padron\RC_PadRechazados.Outputs[Row Count Output 1]" />
           </paths>
         </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_Reiniciar"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Carga completa (Truncate &amp; Insert): vacía las tablas de datos antes de cargar. Conserva la bitácora."
+      DTS:DTSID="{164CF107-938E-460D-9D94-E4BE08B9A219}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_Reiniciar"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{5766BAFB-B926-4915-AB39-FF2B3F6D8BBD}"
+          SQLTask:SqlStatementSource="-- Carga completa: se vacían las tablas de datos y se conserva la bitácora.&#xA;-- Orden por claves foráneas: primero las hijas, al final el catálogo.&#xA;TRUNCATE TABLE dbo.ErroresPadron;&#xA;TRUNCATE TABLE dbo.Padron;&#xA;DELETE FROM dbo.UbicacionElectoral;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_InicioBitacora"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Registra el inicio de la ejecución en dbo.BitacoraEjecucion y devuelve su IdEjecucion."
+      DTS:DTSID="{5839CCC6-0B7D-488D-83BF-27AE485C3DEE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_InicioBitacora"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{5766BAFB-B926-4915-AB39-FF2B3F6D8BBD}"
+          SQLTask:SqlStatementSource="SET NOCOUNT ON;&#xA;INSERT INTO dbo.BitacoraEjecucion (Paquete, Estado)&#xA;OUTPUT inserted.IdEjecucion&#xA;VALUES ('Carga_Padron', 'EnEjecucion');"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+            <SQLTask:ResultBinding
+              SQLTask:ResultName="0"
+              SQLTask:DtsVariableName="User::IdEjecucion" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_FinBitacora"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Guarda los contadores de Row Count y marca la ejecución como Exitoso."
+      DTS:DTSID="{A4C1E898-F9FA-4E80-8DF9-ED8ECD1A90FD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_FinBitacora"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{5766BAFB-B926-4915-AB39-FF2B3F6D8BBD}"
+          SQLTask:SqlStatementSource="UPDATE dbo.BitacoraEjecucion&#xA;SET    FechaFin           = SYSDATETIME(),&#xA;       Estado             = 'Exitoso',&#xA;       CatalogoLeidos     = ?,&#xA;       CatalogoCargados   = ?,&#xA;       CatalogoRechazados = ?,&#xA;       PadronLeidos       = ?,&#xA;       PadronCargados     = ?,&#xA;       PadronRechazados   = ?&#xA;WHERE  IdEjecucion        = ?;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+            <SQLTask:ParameterBinding
+              SQLTask:ParameterName="0"
+              SQLTask:DtsVariableName="User::CatLeidos"
+              SQLTask:ParameterDirection="Input"
+              SQLTask:DataType="3"
+              SQLTask:ParameterSize="-1" />
+            <SQLTask:ParameterBinding
+              SQLTask:ParameterName="1"
+              SQLTask:DtsVariableName="User::CatCargados"
+              SQLTask:ParameterDirection="Input"
+              SQLTask:DataType="3"
+              SQLTask:ParameterSize="-1" />
+            <SQLTask:ParameterBinding
+              SQLTask:ParameterName="2"
+              SQLTask:DtsVariableName="User::CatRechazados"
+              SQLTask:ParameterDirection="Input"
+              SQLTask:DataType="3"
+              SQLTask:ParameterSize="-1" />
+            <SQLTask:ParameterBinding
+              SQLTask:ParameterName="3"
+              SQLTask:DtsVariableName="User::PadLeidos"
+              SQLTask:ParameterDirection="Input"
+              SQLTask:DataType="3"
+              SQLTask:ParameterSize="-1" />
+            <SQLTask:ParameterBinding
+              SQLTask:ParameterName="4"
+              SQLTask:DtsVariableName="User::PadCargados"
+              SQLTask:ParameterDirection="Input"
+              SQLTask:DataType="3"
+              SQLTask:ParameterSize="-1" />
+            <SQLTask:ParameterBinding
+              SQLTask:ParameterName="5"
+              SQLTask:DtsVariableName="User::PadRechazados"
+              SQLTask:ParameterDirection="Input"
+              SQLTask:DataType="3"
+              SQLTask:ParameterSize="-1" />
+            <SQLTask:ParameterBinding
+              SQLTask:ParameterName="6"
+              SQLTask:DtsVariableName="User::IdEjecucion"
+              SQLTask:ParameterDirection="Input"
+              SQLTask:DataType="3"
+              SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_FalloBitacora"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Si falla un flujo de datos, guarda los contadores alcanzados y marca la ejecución como Fallido."
+      DTS:DTSID="{22B8EC94-0E93-4245-AE8B-6845D8382061}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_FalloBitacora"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{5766BAFB-B926-4915-AB39-FF2B3F6D8BBD}"
+          SQLTask:SqlStatementSource="UPDATE dbo.BitacoraEjecucion&#xA;SET    FechaFin           = SYSDATETIME(),&#xA;       Estado             = 'Fallido',&#xA;       CatalogoLeidos     = ?,&#xA;       CatalogoCargados   = ?,&#xA;       CatalogoRechazados = ?,&#xA;       PadronLeidos       = ?,&#xA;       PadronCargados     = ?,&#xA;       PadronRechazados   = ?,&#xA;       Observaciones      = 'Falló un flujo de datos; revise la pestaña Progreso o el registro de SSIS.'&#xA;WHERE  IdEjecucion        = ?;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+            <SQLTask:ParameterBinding
+              SQLTask:ParameterName="0"
+              SQLTask:DtsVariableName="User::CatLeidos"
+              SQLTask:ParameterDirection="Input"
+              SQLTask:DataType="3"
+              SQLTask:ParameterSize="-1" />
+            <SQLTask:ParameterBinding
+              SQLTask:ParameterName="1"
+              SQLTask:DtsVariableName="User::CatCargados"
+              SQLTask:ParameterDirection="Input"
+              SQLTask:DataType="3"
+              SQLTask:ParameterSize="-1" />
+            <SQLTask:ParameterBinding
+              SQLTask:ParameterName="2"
+              SQLTask:DtsVariableName="User::CatRechazados"
+              SQLTask:ParameterDirection="Input"
+              SQLTask:DataType="3"
+              SQLTask:ParameterSize="-1" />
+            <SQLTask:ParameterBinding
+              SQLTask:ParameterName="3"
+              SQLTask:DtsVariableName="User::PadLeidos"
+              SQLTask:ParameterDirection="Input"
+              SQLTask:DataType="3"
+              SQLTask:ParameterSize="-1" />
+            <SQLTask:ParameterBinding
+              SQLTask:ParameterName="4"
+              SQLTask:DtsVariableName="User::PadCargados"
+              SQLTask:ParameterDirection="Input"
+              SQLTask:DataType="3"
+              SQLTask:ParameterSize="-1" />
+            <SQLTask:ParameterBinding
+              SQLTask:ParameterName="5"
+              SQLTask:DtsVariableName="User::PadRechazados"
+              SQLTask:ParameterDirection="Input"
+              SQLTask:DataType="3"
+              SQLTask:ParameterSize="-1" />
+            <SQLTask:ParameterBinding
+              SQLTask:ParameterName="6"
+              SQLTask:DtsVariableName="User::IdEjecucion"
+              SQLTask:ParameterDirection="Input"
+              SQLTask:DataType="3"
+              SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -7296,6 +7780,57 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 1"
       DTS:To="Package\DFT_ExportarRechazados" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{424D10A2-7C33-46CA-95B8-395C4A31A9FE}"
+      DTS:From="Package\SQL_Reiniciar"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 2"
+      DTS:To="Package\SQL_InicioBitacora" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{FDC18EC3-B5AE-4DE9-AC10-4177EE911F20}"
+      DTS:From="Package\SQL_InicioBitacora"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 3"
+      DTS:To="Package\DFT_Catalogo" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{AEE01C9E-50FA-4C96-8551-13CD49C30A89}"
+      DTS:From="Package\DFT_ExportarRechazados"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 4"
+      DTS:To="Package\SQL_FinBitacora" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{10D9670F-EC81-4748-A693-671BED2FAA8C}"
+      DTS:From="Package\DFT_Catalogo"
+      DTS:LogicalAnd="False"
+      DTS:Value="1"
+      DTS:ObjectName="Restricción 5"
+      DTS:To="Package\SQL_FalloBitacora" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{47E49A1A-6522-4CC1-A726-E689E6A78B74}"
+      DTS:From="Package\DFT_Padron"
+      DTS:LogicalAnd="False"
+      DTS:Value="1"
+      DTS:ObjectName="Restricción 6"
+      DTS:To="Package\SQL_FalloBitacora" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{77F4832D-42CB-49D0-97C8-5661D2F9572F}"
+      DTS:From="Package\DFT_ExportarRechazados"
+      DTS:LogicalAnd="False"
+      DTS:Value="1"
+      DTS:ObjectName="Restricción 7"
+      DTS:To="Package\SQL_FalloBitacora" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
@@ -7304,444 +7839,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
 <Objects
   Version="8">
   <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
-  <Package
-    design-time-name="Package">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="147.333333333334,42"
-          Id="Package\DFT_Catalogo"
-          TopLeft="214.750000726432,104.940789034717" />
-        <NodeLayout
-          Size="141.333333333334,42.6666666666667"
-          Id="Package\DFT_Padron"
-          TopLeft="221.000003911554,185.221490871681" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="290.04166898566,146.940789034717">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38.2807018369638"
-              Start="0,0"
-              End="0,30.7807018369638">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.7807018369638" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="205.333333333334,42.6666666666667"
-          Id="Package\DFT_ExportarRechazados"
-          TopLeft="183.749991785735,272.999997002514" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="289.041664515311,227.888157538348">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45.1118394641662"
-              Start="0,0"
-              End="0,37.6118394641662">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.6118394641662" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </Package>
-  <TaskHost
-    design-time-name="Package\DFT_Catalogo">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="204,42.6666666666667"
-          Id="Package\DFT_Catalogo\SCR_DuplicadosCatalogo"
-          TopLeft="113.12499367632,513.385960322145" />
-        <NodeLayout
-          Size="184,42"
-          Id="Package\DFT_Catalogo\DC_LimpiezaCatalogo"
-          TopLeft="318.972221160514,209.925924883212" />
-        <NodeLayout
-          Size="196,42.6666666666667"
-          Id="Package\DFT_Catalogo\OLE_UbicacionElectoral"
-          TopLeft="121.124993363395,593.736837697409" />
-        <NodeLayout
-          Size="197.333333333334,42"
-          Id="Package\DFT_Catalogo\FIN_CatalogoRechazado"
-          TopLeft="625.734125922419,431.613754756893" />
-        <NodeLayout
-          Size="173.333333333334,42"
-          Id="Package\DFT_Catalogo\DC_MotivoCatalogo"
-          TopLeft="91.0277767160701,294.064813354179" />
-        <NodeLayout
-          Size="144.666666666667,42"
-          Id="Package\DFT_Catalogo\SRC_Distelec"
-          TopLeft="182.972221160514,120.550925327143" />
-        <NodeLayout
-          Size="174.666666666667,42"
-          Id="Package\DFT_Catalogo\CS_ValidarCatalogo"
-          TopLeft="388.472221160514,369.837961125958" />
-        <NodeLayout
-          Size="162.666666666667,42"
-          Id="Package\DFT_Catalogo\DC_TipoCatalogo"
-          TopLeft="136.861112373984,430.675923944026" />
-        <EdgeLayout
-          Id="Package\DFT_Catalogo.Paths[Validos]"
-          TopLeft="388.472221160514,390.837961125958">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-88.9444421198632,60.8379628180678"
-              Start="0,0"
-              End="-81.4444421198632,60.8379628180678">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-40.4722210599316,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-40.4722210599316,0"
-                    Point2="-44.4722210599316,0"
-                    Point3="-44.4722210599316,4" />
-                  <mssgle:LineSegment
-                    End="-44.4722210599316,56.8379628180678" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-44.4722210599316,56.8379628180678"
-                    Point2="-44.4722210599316,60.8379628180678"
-                    Point3="-48.4722210599316,60.8379628180678" />
-                  <mssgle:LineSegment
-                    End="-81.4444421198632,60.8379628180678" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-61.0079827786816,-15.7490234375,33.0715234375,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Catalogo.Paths[Unicos]"
-          TopLeft="217.124993519858,556.052626988812">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,37.684210708597"
-              Start="0,0"
-              End="0,30.184210708597">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.184210708597" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.0465234375,10.3567537917985,30.093046875,9.470703125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Catalogo.Paths[Rechazados]"
-          TopLeft="562.972221160514,390.837961125958">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="62.7619047619047,61.7757936309354"
-              Start="0,0"
-              End="55.2619047619047,61.7757936309354">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="27.3809523809524,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="27.3809523809524,0"
-                    Point2="31.3809523809524,0"
-                    Point3="31.3809523809524,4" />
-                  <mssgle:LineSegment
-                    End="31.3809523809524,57.7757936309354" />
-                  <mssgle:CubicBezierSegment
-                    Point1="31.3809523809524,57.7757936309354"
-                    Point2="31.3809523809524,61.7757936309354"
-                    Point3="35.3809523809524,61.7757936309354" />
-                  <mssgle:LineSegment
-                    End="55.2619047619047,61.7757936309354" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="4.8333742559524,-15.7490234375,53.09515625,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Catalogo.Paths[Flat File Source Output]"
-          TopLeft="255.222221160514,162.550925327143">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="155.75,47.3749995560696"
-              Start="0,0"
-              End="155.75,39.8749995560696">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.6874997780348" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.6874997780348"
-                    Point2="0,23.6874997780348"
-                    Point3="4,23.6874997780348" />
-                  <mssgle:LineSegment
-                    End="151.75,23.6874997780348" />
-                  <mssgle:CubicBezierSegment
-                    Point1="151.75,23.6874997780348"
-                    Point2="155.75,23.6874997780348"
-                    Point3="155.75,27.6874997780348" />
-                  <mssgle:LineSegment
-                    End="155.75,39.8749995560696" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Catalogo.Paths[Derived Column Output2]"
-          TopLeft="216.659719691819,472.675923944026">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,40.7100363781194"
-              Start="0,0"
-              End="0,33.2100363781194">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.2100363781194" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Catalogo.Paths[Derived Column Output1]"
-          TopLeft="177.52777671607,336.064813354179">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="298.194444444444,33.7731477717788"
-              Start="0,0"
-              End="298.194444444444,26.2731477717788">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.8865738858894" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.8865738858894"
-                    Point2="0,16.8865738858894"
-                    Point3="4,16.8865738858894" />
-                  <mssgle:LineSegment
-                    End="294.194444444444,16.8865738858894" />
-                  <mssgle:CubicBezierSegment
-                    Point1="294.194444444444,16.8865738858894"
-                    Point2="298.194444444444,16.8865738858894"
-                    Point3="298.194444444444,20.8865738858894" />
-                  <mssgle:LineSegment
-                    End="298.194444444444,26.2731477717788" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Catalogo.Paths[Derived Column Output]"
-          TopLeft="410.972221160514,251.925924883212">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-233.444444444444,42.1388884709665"
-              Start="0,0"
-              End="-233.444444444444,34.6388884709665">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.0694442354833" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.0694442354833"
-                    Point2="0,21.0694442354833"
-                    Point3="-4,21.0694442354833" />
-                  <mssgle:LineSegment
-                    End="-229.444444444444,21.0694442354833" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-229.444444444444,21.0694442354833"
-                    Point2="-233.444444444444,21.0694442354833"
-                    Point3="-233.444444444444,25.0694442354833" />
-                  <mssgle:LineSegment
-                    End="-233.444444444444,34.6388884709665" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="196.666666666667,42.6666666666667"
-          Id="Package\DFT_Catalogo\DC_MotivoDuplicadoCat"
-          TopLeft="490.99998536706,509.999984800816" />
-        <EdgeLayout
-          Id="Package\DFT_Catalogo.Paths[Duplicados]"
-          TopLeft="317.12499367632,533.026305894814">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="173.87499169074,0"
-              Start="0,0"
-              End="166.37499169074,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="166.37499169074,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="58.7749177203699,5,48.82515625,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Catalogo.Paths[Derived Column Output3]"
-          TopLeft="589.333318700393,509.999984800816">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="103.511918333137,-36.3862300439231"
-              Start="0,0"
-              End="103.511918333137,-28.8862300439231">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-17.6561476400829" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-17.6561476400829"
-                    Point2="0,-21.6561476400829"
-                    Point3="4,-21.6561476400829" />
-                  <mssgle:LineSegment
-                    End="99.5119183331367,-21.6561476400829" />
-                  <mssgle:CubicBezierSegment
-                    Point1="99.5119183331367,-21.6561476400829"
-                    Point2="103.511918333137,-21.6561476400829"
-                    Point3="103.511918333137,-25.6561476400829" />
-                  <mssgle:LineSegment
-                    End="103.511918333137,-28.8862300439231" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="153.333333333334,42.6666666666667"
-          Id="Package\DFT_Catalogo\DC_ArchivoCat"
-          TopLeft="677.999979794026,593.999982297421" />
-        <EdgeLayout
-          Id="Package\DFT_Catalogo.Paths[Union All Output 1]"
-          TopLeft="755.311497302667,473.613754756893">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,120.386227540528"
-              Start="0,0"
-              End="0,112.886227540528">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,112.886227540528" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="184,42.6666666666667"
-          Id="Package\DFT_Catalogo\OLE_ErroresCatalogo"
-          TopLeft="371.999988913536,593.666649411123" />
-        <EdgeLayout
-          Id="Package\DFT_Catalogo.Paths[Derived Column Output4]"
-          TopLeft="677.999979794026,615.166649187605">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-121.999990880489,0"
-              Start="0,0"
-              End="-114.499990880489,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-114.499990880489,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\DFT_Catalogo\OLE_UbicacionElectoral">
     <Properties>
@@ -7755,608 +7852,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DFT_Padron">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="165.333333333334,42"
-          Id="Package\DFT_Padron\DC_MotivoPadron"
-          TopLeft="382.857142857143,202.857142857143" />
-        <NodeLayout
-          Size="176,42.6666666666667"
-          Id="Package\DFT_Padron\OLE_ErroresPadron"
-          TopLeft="432.007556445332,813.506107423489" />
-        <NodeLayout
-          Size="174.666666666667,42.6666666666667"
-          Id="Package\DFT_Padron\DC_MotivoNoExiste"
-          TopLeft="23.2142846765262,561.754382766735" />
-        <NodeLayout
-          Size="172,42"
-          Id="Package\DFT_Padron\DC_ConvertirFecha"
-          TopLeft="381.233766233766,372.987012987013" />
-        <NodeLayout
-          Size="146.666666666667,42"
-          Id="Package\DFT_Padron\UA_ErroresP3"
-          TopLeft="647.693186800757,645.32216571595" />
-        <NodeLayout
-          Size="146.666666666667,42.6666666666667"
-          Id="Package\DFT_Padron\LKP_CodElec"
-          TopLeft="247.032819110525,477.299298973803" />
-        <NodeLayout
-          Size="141.333333333334,42"
-          Id="Package\DFT_Padron\SRC_Padron"
-          TopLeft="395.285714285714,34.0000000000003" />
-        <NodeLayout
-          Size="182.666666666667,42"
-          Id="Package\DFT_Padron\DC_MotivoFecha"
-          TopLeft="466.473216870134,518.045112293643" />
-        <NodeLayout
-          Size="136,42.6666666666667"
-          Id="Package\DFT_Padron\DC_Archivo"
-          TopLeft="519.791643430169,721.374263659455" />
-        <NodeLayout
-          Size="149.333333333334,42"
-          Id="Package\DFT_Padron\FIN_ValidosP3"
-          TopLeft="964.886334807698,184.175441947065" />
-        <NodeLayout
-          Size="196,42.6666666666667"
-          Id="Package\DFT_Padron\SCR_DuplicadosPadron"
-          TopLeft="248.273800064233,579.072678757215" />
-        <NodeLayout
-          Size="180,42.6666666666667"
-          Id="Package\DFT_Padron\DC_MotivoDuplicada"
-          TopLeft="19.1666658098499,683.210522657204" />
-        <NodeLayout
-          Size="141.333333333334,42.6666666666667"
-          Id="Package\DFT_Padron\OLE_Padron"
-          TopLeft="303.392845219268,720.290724449533" />
-        <NodeLayout
-          Size="176,42"
-          Id="Package\DFT_Padron\DC_LimpiezaPadron"
-          TopLeft="477.942857142857,113.028571428571" />
-        <NodeLayout
-          Size="166,42"
-          Id="Package\DFT_Padron\CS_ValidarPadron"
-          TopLeft="485,282.142857142857" />
-        <EdgeLayout
-          Id="Package\DFT_Padron.Paths[Validos]"
-          TopLeft="568,324.142857142857">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-100.766233766234,48.8441558441558"
-              Start="0,0"
-              End="-100.766233766234,41.3441558441558">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.4220779220779" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.4220779220779"
-                    Point2="0,24.4220779220779"
-                    Point3="-4,24.4220779220779" />
-                  <mssgle:LineSegment
-                    End="-96.7662337662337,24.4220779220779" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-96.7662337662337,24.4220779220779"
-                    Point2="-100.766233766234,24.4220779220779"
-                    Point3="-100.766233766234,28.4220779220779" />
-                  <mssgle:LineSegment
-                    End="-100.766233766234,41.3441558441558" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-66.9188786018669,29.4220779220779,33.0715234375,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Padron.Paths[Unicos]"
-          TopLeft="375.833322641751,621.739345423882">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,98.5513790256506"
-              Start="0,0"
-              End="0,91.0513790256506">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,91.0513790256506" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.0465234375,40.7903379503253,30.093046875,9.470703125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Padron.Paths[Rechazados]"
-          TopLeft="594.333333333333,324.142857142857">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="161.359853467424,321.179308573093"
-              Start="0,0"
-              End="161.359853467424,313.679308573093">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,177.221805271765" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,177.221805271765"
-                    Point2="0,181.221805271765"
-                    Point3="4,181.221805271765" />
-                  <mssgle:LineSegment
-                    End="157.359853467424,181.221805271765" />
-                  <mssgle:CubicBezierSegment
-                    Point1="157.359853467424,181.221805271765"
-                    Point2="161.359853467424,181.221805271765"
-                    Point3="161.359853467424,185.221805271765" />
-                  <mssgle:LineSegment
-                    End="161.359853467424,313.679308573093" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="54.132348608712,186.221805271765,53.09515625,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Padron.Paths[Lookup No Match Output]"
-          TopLeft="297.255041332747,519.965965640469">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-186.707423322887,41.7884171262659"
-              Start="0,0"
-              End="-186.707423322887,34.2884171262659">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.9859393354966" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.9859393354966"
-                    Point2="0,16.9859393354966"
-                    Point3="-4,16.9859393354966" />
-                  <mssgle:LineSegment
-                    End="-182.707423322887,16.9859393354966" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-182.707423322887,16.9859393354966"
-                    Point2="-186.707423322887,16.9859393354966"
-                    Point3="-186.707423322887,20.9859393354966" />
-                  <mssgle:LineSegment
-                    End="-186.707423322887,34.2884171262659" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-149.160098380193,21.9859393354966,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Padron.Paths[Lookup Match Output]"
-          TopLeft="344.875531809601,519.965965640469">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.1067131167463"
-              Start="0,0"
-              End="0,51.6067131167463">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51.6067131167463" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,19.9986690583731,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Padron.Paths[Flat File Source Output]"
-          TopLeft="465.785714285714,76.0000000000003">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="100.157142857143,37.0285714285712"
-              Start="0,0"
-              End="100.157142857143,29.5285714285712">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14.5142857142856" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.5142857142856"
-                    Point2="0,18.5142857142856"
-                    Point3="4,18.5142857142856" />
-                  <mssgle:LineSegment
-                    End="96.1571428571433,18.5142857142856" />
-                  <mssgle:CubicBezierSegment
-                    Point1="96.1571428571433,18.5142857142856"
-                    Point2="100.157142857143,18.5142857142856"
-                    Point3="100.157142857143,22.5142857142856" />
-                  <mssgle:LineSegment
-                    End="100.157142857143,29.5285714285712" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Padron.Paths[Duplicados]"
-          TopLeft="314.9404667309,621.739345423882">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-205.77380092105,61.4711772333218"
-              Start="0,0"
-              End="-205.77380092105,53.9711772333218">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.8871162887942" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.8871162887942"
-                    Point2="0,24.8871162887942"
-                    Point3="-4,24.8871162887942" />
-                  <mssgle:LineSegment
-                    End="-201.77380092105,24.8871162887942" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-201.77380092105,24.8871162887942"
-                    Point2="-205.77380092105,24.8871162887942"
-                    Point3="-205.77380092105,28.8871162887942" />
-                  <mssgle:LineSegment
-                    End="-205.77380092105,53.9711772333218" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-127.299478585525,29.8871162887942,48.82515625,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Padron.Paths[Derived Column Output5]"
-          TopLeft="199.16666580985,704.543855990537">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="448.526520990907,-38.221690274587"
-              Start="0,0"
-              End="441.026520990907,-38.221690274587">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="220.263260495454,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="220.263260495454,0"
-                    Point2="224.263260495454,0"
-                    Point3="224.263260495454,-4" />
-                  <mssgle:LineSegment
-                    End="224.263260495454,-34.221690274587" />
-                  <mssgle:CubicBezierSegment
-                    Point1="224.263260495454,-34.221690274587"
-                    Point2="224.263260495454,-38.221690274587"
-                    Point3="228.263260495454,-38.221690274587" />
-                  <mssgle:LineSegment
-                    End="441.026520990907,-38.221690274587" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Padron.Paths[Derived Column Output4]"
-          TopLeft="110.54761800986,604.421049433402">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="575.812235457564,40.9011162825485"
-              Start="0,0"
-              End="575.812235457564,33.4011162825485">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.7804928040496" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.7804928040496"
-                    Point2="0,26.7804928040496"
-                    Point3="4,26.7804928040496" />
-                  <mssgle:LineSegment
-                    End="571.812235457564,26.7804928040496" />
-                  <mssgle:CubicBezierSegment
-                    Point1="571.812235457564,26.7804928040496"
-                    Point2="575.812235457564,26.7804928040496"
-                    Point3="575.812235457564,30.7804928040496" />
-                  <mssgle:LineSegment
-                    End="575.812235457564,33.4011162825485" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Padron.Paths[Derived Column Output3]"
-          TopLeft="439.900432900433,414.987012987013">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-119.534280456575,62.3122859867896"
-              Start="0,0"
-              End="-119.534280456575,54.8122859867896">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.2694984646889" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.2694984646889"
-                    Point2="0,25.2694984646889"
-                    Point3="-4,25.2694984646889" />
-                  <mssgle:LineSegment
-                    End="-115.534280456575,25.2694984646889" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-115.534280456575,25.2694984646889"
-                    Point2="-119.534280456575,25.2694984646889"
-                    Point3="-119.534280456575,29.2694984646889" />
-                  <mssgle:LineSegment
-                    End="-119.534280456575,54.8122859867896" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Padron.Paths[Derived Column Output2]"
-          TopLeft="557.806550203467,560.045112293643">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="163.219969930623,85.2770534223071"
-              Start="0,0"
-              End="163.219969930623,77.7770534223071">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.6385267111535" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,38.6385267111535"
-                    Point2="0,42.6385267111535"
-                    Point3="4,42.6385267111535" />
-                  <mssgle:LineSegment
-                    End="159.219969930623,42.6385267111535" />
-                  <mssgle:CubicBezierSegment
-                    Point1="159.219969930623,42.6385267111535"
-                    Point2="163.219969930623,42.6385267111535"
-                    Point3="163.219969930623,46.6385267111535" />
-                  <mssgle:LineSegment
-                    End="163.219969930623,77.7770534223071" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Padron.Paths[Derived Column Output1]"
-          TopLeft="465.357142857143,244.857142857143">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="102.642857142857,37.2857142857142"
-              Start="0,0"
-              End="102.642857142857,29.7857142857142">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14.6428571428571" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.6428571428571"
-                    Point2="0,18.6428571428571"
-                    Point3="4,18.6428571428571" />
-                  <mssgle:LineSegment
-                    End="98.6428571428569,18.6428571428571" />
-                  <mssgle:CubicBezierSegment
-                    Point1="98.6428571428569,18.6428571428571"
-                    Point2="102.642857142857,18.6428571428571"
-                    Point3="102.642857142857,22.6428571428571" />
-                  <mssgle:LineSegment
-                    End="102.642857142857,29.7857142857142" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Padron.Paths[Derived Column Output]"
-          TopLeft="565.942857142857,155.028571428571">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-100.585714285714,47.8285714285715"
-              Start="0,0"
-              End="-100.585714285714,40.3285714285715">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.9142857142858" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.9142857142858"
-                    Point2="0,23.9142857142858"
-                    Point3="-4,23.9142857142858" />
-                  <mssgle:LineSegment
-                    End="-96.5857142857143,23.9142857142858" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-96.5857142857143,23.9142857142858"
-                    Point2="-100.585714285714,23.9142857142858"
-                    Point3="-100.585714285714,27.9142857142858" />
-                  <mssgle:LineSegment
-                    End="-100.585714285714,40.3285714285715" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Padron.Paths[Derived Column Error Output]"
-          TopLeft="494.567099567099,414.987012987013">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="34.128339525257,103.05809930663"
-              Start="0,0"
-              End="34.128339525257,95.5580993066303">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.5632654897383" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,47.5632654897383"
-                    Point2="0,51.5632654897383"
-                    Point3="4,51.5632654897383" />
-                  <mssgle:LineSegment
-                    End="30.128339525257,51.5632654897383" />
-                  <mssgle:CubicBezierSegment
-                    Point1="30.128339525257,51.5632654897383"
-                    Point2="34.128339525257,51.5632654897383"
-                    Point3="34.128339525257,55.5632654897383" />
-                  <mssgle:LineSegment
-                    End="34.128339525257,95.5580993066303" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-47.8972169561215,56.5632654897383,129.9227734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Padron.Paths[Union All Output 1]"
-          TopLeft="721.02652013409,687.32216571595">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-133.234876703921,34.052097943505"
-              Start="0,0"
-              End="-133.234876703921,26.552097943505">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13.0260489717525" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.0260489717525"
-                    Point2="0,17.0260489717525"
-                    Point3="-4,17.0260489717525" />
-                  <mssgle:LineSegment
-                    End="-129.234876703921,17.0260489717525" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-129.234876703921,17.0260489717525"
-                    Point2="-133.234876703921,17.0260489717525"
-                    Point3="-133.234876703921,21.0260489717525" />
-                  <mssgle:LineSegment
-                    End="-133.234876703921,26.552097943505" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Padron.Paths[Derived Column Output6]"
-          TopLeft="587.791643430169,764.040930326122">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-67.7840869848367,49.4651770973674"
-              Start="0,0"
-              End="-67.7840869848367,41.9651770973674">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.7325885486837" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.7325885486837"
-                    Point2="0,24.7325885486837"
-                    Point3="-4,24.7325885486837" />
-                  <mssgle:LineSegment
-                    End="-63.7840869848367,24.7325885486837" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-63.7840869848367,24.7325885486837"
-                    Point2="-67.7840869848367,24.7325885486837"
-                    Point3="-67.7840869848367,28.7325885486837" />
-                  <mssgle:LineSegment
-                    End="-67.7840869848367,41.9651770973674" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\DFT_Padron\OLE_ErroresPadron">
     <Properties>
